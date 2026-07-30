@@ -582,57 +582,81 @@
             font-weight: bold;
         }
 
-        /* ===== LOGO MARQUEE ===== */
+        /* ===== LOGO MARQUEE SYSTEM ===== */
         .marquee-section {
-            padding: 24px 0 !important;
+            width: 100%;
+            max-width: 100%;
+            padding: 24px 0;
             border-top: 1px solid var(--border-subtle);
             border-bottom: 1px solid var(--border-subtle);
             background: var(--surface-1);
-            overflow: hidden !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: center !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            box-sizing: border-box !important;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .marquee-header-title {
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            color: var(--accent-red-bright);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            display: block;
+            width: 100%;
         }
 
         .marquee-track-wrap {
-            display: flex !important;
-            flex-wrap: nowrap !important;
-            overflow: hidden !important;
-            user-select: none !important;
-            width: 100% !important;
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            user-select: none;
+            white-space: nowrap;
         }
 
         .marquee-content {
-            flex-shrink: 0 !important;
-            display: flex !important;
-            flex-wrap: nowrap !important;
-            align-items: center !important;
-            gap: 20px !important;
-            padding-right: 20px !important;
-            animation: scrollMarquee 30s linear infinite !important;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-shrink: 0;
+            align-items: center;
+            animation: scrollMarqueeTrack 25s linear infinite;
+            will-change: transform;
         }
 
-        @keyframes scrollMarquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
+        .marquee-section:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollMarqueeTrack {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
 
         .brand-pill {
-            padding: 8px 20px !important;
-            border-radius: var(--radius-full) !important;
-            background: var(--surface-2) !important;
-            border: 1px solid var(--border-subtle) !important;
-            font-size: 13px !important;
-            font-weight: 600 !important;
-            color: var(--text-secondary) !important;
-            white-space: nowrap !important;
-            margin: 0 !important;
-            flex-shrink: 0 !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 22px;
+            margin: 0 10px;
+            border-radius: var(--radius-full);
+            background: var(--surface-2);
+            border: 1px solid var(--border-subtle);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            flex-shrink: 0;
             transition: var(--transition);
+        }
+
+        .brand-pill:hover {
+            border-color: var(--accent-red);
+            color: var(--text-primary);
+            transform: translateY(-2px);
         }
 
         .brand-pill:hover {
@@ -3301,11 +3325,9 @@ body.light-mode .text-gradient {
   .footer-links-list a { font-size: 11px; }
   .footer-bottom-bar { font-size: 11px; padding-top: 14px; }
 
-  /* Marquee */
-  .marquee-section { padding: 14px 0 !important; }
-  .marquee-track-wrap { display: flex !important; flex-wrap: nowrap !important; overflow: hidden !important; width: 100% !important; }
-  .marquee-content { display: flex !important; flex-wrap: nowrap !important; gap: 14px !important; padding-right: 14px !important; flex-shrink: 0 !important; }
-  .brand-pill { font-size: 11px !important; padding: 6px 14px !important; margin: 0 !important; flex-shrink: 0 !important; white-space: nowrap !important; }
+  /* Marquee Mobile */
+  .marquee-section { padding: 14px 0; }
+  .brand-pill { font-size: 11px; padding: 6px 14px; margin: 0 6px; }
 
   /* WhatsApp floating */
   .whatsapp-widget { bottom: 12px; right: 12px; }
@@ -3930,31 +3952,27 @@ html, body {
 
     <!-- LOGO MARQUEE / BRANDS WE WORK WITH -->
     <div class="marquee-section" id="brands">
-        <div style="text-align: center; font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--accent-red-bright); text-transform: uppercase; margin-bottom: 14px;">
-            ⚡ BRANDS WE WORK WITH
-        </div>
+        <span class="marquee-header-title">⚡ BRANDS WE WORK WITH</span>
         <div class="marquee-track-wrap">
             <div class="marquee-content">
-                <div class="brand-pill">Social FastTag Pro</div>
-                <div class="brand-pill">Blue Aura Tourism</div>
-                <div class="brand-pill">S.Sense Salon</div>
-                <div class="brand-pill">Illumi White</div>
-                <div class="brand-pill">TLC Educations</div>
-                <div class="brand-pill">Virasat Living Spaces</div>
-                <div class="brand-pill">AuraShine Infotech</div>
-                <div class="brand-pill">LA Creations</div>
-                <div class="brand-pill">Mangalam Jewellers</div>
-            </div>
-            <div class="marquee-content" aria-hidden="true">
-                <div class="brand-pill">Social FastTag Pro</div>
-                <div class="brand-pill">Blue Aura Tourism</div>
-                <div class="brand-pill">S.Sense Salon</div>
-                <div class="brand-pill">Illumi White</div>
-                <div class="brand-pill">TLC Educations</div>
-                <div class="brand-pill">Virasat Living Spaces</div>
-                <div class="brand-pill">AuraShine Infotech</div>
-                <div class="brand-pill">LA Creations</div>
-                <div class="brand-pill">Mangalam Jewellers</div>
+                <span class="brand-pill">Social FastTag Pro</span>
+                <span class="brand-pill">Blue Aura Tourism</span>
+                <span class="brand-pill">S.Sense Salon</span>
+                <span class="brand-pill">Illumi White</span>
+                <span class="brand-pill">TLC Educations</span>
+                <span class="brand-pill">Virasat Living Spaces</span>
+                <span class="brand-pill">AuraShine Infotech</span>
+                <span class="brand-pill">LA Creations</span>
+                <span class="brand-pill">Mangalam Jewellers</span>
+                <span class="brand-pill">Social FastTag Pro</span>
+                <span class="brand-pill">Blue Aura Tourism</span>
+                <span class="brand-pill">S.Sense Salon</span>
+                <span class="brand-pill">Illumi White</span>
+                <span class="brand-pill">TLC Educations</span>
+                <span class="brand-pill">Virasat Living Spaces</span>
+                <span class="brand-pill">AuraShine Infotech</span>
+                <span class="brand-pill">LA Creations</span>
+                <span class="brand-pill">Mangalam Jewellers</span>
             </div>
         </div>
     </div>
