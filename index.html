@@ -595,21 +595,21 @@
             display: flex;
             overflow: hidden;
             user-select: none;
-            gap: 30px;
+            width: 100%;
         }
 
         .marquee-content {
             flex-shrink: 0;
             display: flex;
-            justify-content: space-around;
-            min-width: 100%;
-            gap: 30px;
+            align-items: center;
+            gap: 20px;
+            padding-right: 20px;
             animation: scrollMarquee 30s linear infinite;
         }
 
         @keyframes scrollMarquee {
-            from { transform: translateX(0); }
-            to { transform: translateX(-100%); }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
 
         .brand-pill {
@@ -621,7 +621,7 @@
             font-weight: 600 !important;
             color: var(--text-secondary) !important;
             white-space: nowrap !important;
-            margin-right: 16px !important;
+            margin: 0 !important;
             flex-shrink: 0 !important;
             transition: var(--transition);
         }
@@ -3290,8 +3290,9 @@ body.light-mode .text-gradient {
   .footer-bottom-bar { font-size: 11px; padding-top: 14px; }
 
   /* Marquee */
-  .marquee-section { padding: 14px 0; }
-  .brand-pill { font-size: 11px !important; padding: 6px 14px !important; margin-right: 12px !important; flex-shrink: 0 !important; }
+  .marquee-section { padding: 14px 0 !important; }
+  .marquee-content { gap: 12px !important; padding-right: 12px !important; }
+  .brand-pill { font-size: 11px !important; padding: 6px 14px !important; margin: 0 !important; flex-shrink: 0 !important; }
 
   /* WhatsApp floating */
   .whatsapp-widget { bottom: 12px; right: 12px; }
