@@ -3566,64 +3566,75 @@ html, body {
 
   /* FULLSCREEN OPAQUE MOBILE MENU OVERLAY */
   .nav-links {
-    display: none;
+    display: none !important;
   }
 
   .nav-links.open {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 100vh;
-    min-height: 100vh;
-    background: #09090B;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 80px 24px 40px;
-    gap: 32px;
-    z-index: 999999;
-    margin: 0;
-    border: none;
-    border-radius: 0;
-    overflow-y: auto;
-    opacity: 1;
-    visibility: visible;
+    display: flex !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    background: #09090B !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 80px 24px 40px !important;
+    gap: 20px !important;
+    z-index: 999999 !important;
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow-y: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
   }
 
   body.light-mode .nav-links.open {
-    background: #FFFFFF;
+    background: #FFFFFF !important;
   }
 
   .nav-links.open .nav-link {
-    font-family: var(--font-display);
-    font-size: 26px;
-    font-weight: 700;
-    color: #FFFFFF;
-    text-align: center;
-    text-decoration: none;
-    letter-spacing: -0.01em;
-    transition: color 0.2s ease;
+    display: block !important;
+    font-family: var(--font-display) !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    height: auto !important;
+    color: #FFFFFF !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    letter-spacing: -0.01em !important;
+    padding: 8px 16px !important;
+    margin: 0 !important;
+    transition: color 0.2s ease !important;
   }
 
   body.light-mode .nav-links.open .nav-link {
-    color: #09090B;
+    color: #09090B !important;
   }
 
   .nav-links.open .nav-link:hover {
-    color: var(--accent-red-bright);
+    color: var(--accent-red-bright) !important;
   }
 
   .nav-links.open .btn-primary {
-    width: 80%;
-    max-width: 280px;
-    padding: 16px 24px;
-    font-size: 16px;
-    margin-top: 12px;
-    text-align: center;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 80% !important;
+    max-width: 280px !important;
+    padding: 14px 24px !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    margin-top: 16px !important;
+    text-align: center !important;
   }
 
   /* Hide any rogue elements causing horizontal swipe */
@@ -3901,8 +3912,11 @@ html, body {
         </div>
     </header>
 
-    <!-- LOGO MARQUEE -->
-    <div class="marquee-section">
+    <!-- LOGO MARQUEE / BRANDS WE WORK WITH -->
+    <div class="marquee-section" id="brands">
+        <div style="text-align: center; font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--accent-red-bright); text-transform: uppercase; margin-bottom: 14px;">
+            ⚡ BRANDS WE WORK WITH
+        </div>
         <div class="marquee-track-wrap">
             <div class="marquee-content">
                 <div class="brand-pill">Social FastTag Pro</div>
