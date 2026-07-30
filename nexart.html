@@ -2078,18 +2078,55 @@ html, body {
     border: 1px solid var(--border-subtle) !important;
   }
 
-  /* Mobile navbar: smaller logo, prevent overflow */
+  /* Mobile navbar: compact layout */
+  .navbar {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0 !important;
+    overflow: visible !important;
+    font-size: 0 !important;
+  }
+
+  .navbar-logo {
+    display: inline-flex !important;
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+  }
+
   .navbar-logo-img {
-    height: 32px !important;
-    width: 56px !important;
+    height: 30px !important;
+    width: auto !important;
+    max-width: 70px !important;
+    display: block !important;
   }
 
   .nav-right {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
     gap: 6px !important;
+    flex-shrink: 0 !important;
+    align-items: center !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
   }
 
-  .navbar {
-    overflow: visible !important;
+  .nav-right * {
+    font-size: initial !important;
+    line-height: normal !important;
+  }
+
+  .theme-toggle-btn {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .mobile-menu-btn {
+    width: 34px !important;
+    height: 34px !important;
   }
 
   /* Mobile menu overlay: scroll if content overflows */
@@ -3261,10 +3298,10 @@ body.light-mode .text-gradient {
 
   /* Navbar ultra-compact on tiny screens */
   .navbar { padding: 8px 10px !important; }
-  .navbar-logo-img { height: 30px !important; width: 52px !important; }
-  .nav-right { gap: 6px !important; }
-  .theme-toggle-btn { width: 32px !important; height: 32px !important; }
-  .mobile-menu-btn { width: 34px !important; height: 34px !important; }
+  .navbar-logo-img { height: 24px !important; max-width: 56px !important; }
+  .nav-right { gap: 4px !important; }
+  .theme-toggle-btn { width: 28px !important; height: 28px !important; }
+  .mobile-menu-btn { width: 30px !important; height: 30px !important; }
 }
 
 /* Better hero gap on tablet/mobile */
