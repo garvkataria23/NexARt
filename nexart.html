@@ -3184,8 +3184,9 @@ body.light-mode .text-gradient {
 <style id="ultimate-mobile-friendly">
 /* ===== COMPREHENSIVE MOBILE OPTIMIZATION (tiny screens ≤480px, no desktop changes) ===== */
 @media (max-width: 480px) {
-  /* SCROLL FIXES: ensure body scrolls freely, no viewport locks */
-  html, body { overflow-x: hidden !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; }
+  /* SCROLL FIXES: single native scrollbar on html, body visible */
+  html { overflow-x: hidden !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; }
+  body { overflow-x: hidden !important; overflow-y: hidden !important; }
   #contact { min-height: auto !important; }
   #contact .cta-banner { min-height: auto !important; }
   .portfolio-grid { overscroll-behavior-x: contain !important; -webkit-overflow-scrolling: touch !important; }
@@ -3441,9 +3442,232 @@ body.light-mode .text-gradient {
 }
 </style>
 <style id="single-native-scrollbar">
-/* Single scrollbar — let <html> own it, body just flows. */
-html { overflow-y: auto; }
-body { overflow: visible !important; }
+/* ===== SINGLE NATIVE CHROME SCROLLBAR (NO DOUBLE SCROLLBARS) ===== */
+html {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  height: auto !important;
+}
+
+body {
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  height: auto !important;
+  position: relative !important;
+}
+</style>
+
+<style id="perfect-mobile-responsive-system">
+/* ===== MASTER MOBILE RESPONSIVE SYSTEM & TOP-RIGHT NAVBAR FIX ===== */
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 768px) {
+  /* Prevent horizontal scroll / swipe completely */
+  html, body {
+    overflow-x: hidden !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    touch-action: pan-y !important;
+  }
+
+  /* Main containers stay within screen boundaries */
+  .container, section, header, footer, div, main {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Force Navbar layout to top-right alignment for buttons */
+  .navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 60px !important;
+    height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 10px 16px !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    transform: none !important;
+    z-index: 999999 !important;
+    background: transparent !important;
+  }
+
+  /* Navbar Logo on Left */
+  .navbar-logo {
+    display: flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+    z-index: 1000001 !important;
+    position: relative !important;
+  }
+
+  .navbar-logo-img {
+    height: 26px !important;
+    width: auto !important;
+    max-width: 80px !important;
+    object-fit: contain !important;
+  }
+
+  /* Dark mode and Mobile Menu buttons strictly grouped on Top Right */
+  .nav-right {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+    z-index: 1000001 !important;
+    position: relative !important;
+  }
+
+  .theme-toggle-btn,
+  .mobile-menu-btn {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    background: var(--surface-2) !important;
+    border: 1px solid var(--border-subtle) !important;
+    color: var(--text-primary) !important;
+    cursor: pointer !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    z-index: 1000002 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .theme-toggle-btn svg,
+  .mobile-menu-btn svg {
+    width: 20px !important;
+    height: 20px !important;
+    stroke: currentColor !important;
+  }
+
+  /* FULLSCREEN OPAQUE MOBILE MENU OVERLAY */
+  .nav-links {
+    display: none !important;
+  }
+
+  .nav-links.open {
+    display: flex !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    background: #09090B !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 80px 24px 40px !important;
+    gap: 32px !important;
+    z-index: 999999 !important;
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow-y: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  body.light-mode .nav-links.open {
+    background: #FFFFFF !important;
+  }
+
+  .nav-links.open .nav-link {
+    font-family: var(--font-display) !important;
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    letter-spacing: -0.01em !important;
+    transition: color 0.2s ease !important;
+  }
+
+  body.light-mode .nav-links.open .nav-link {
+    color: #09090B !important;
+  }
+
+  .nav-links.open .nav-link:hover {
+    color: var(--accent-red-bright) !important;
+  }
+
+  .nav-links.open .btn-primary {
+    width: 80% !important;
+    max-width: 280px !important;
+    padding: 16px 24px !important;
+    font-size: 16px !important;
+    margin-top: 12px !important;
+    text-align: center !important;
+  }
+
+  /* Hide any rogue elements causing horizontal swipe */
+  .hero-glow-bg {
+    display: none !important;
+  }
+
+  .hero-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    overflow: hidden !important;
+  }
+
+  .phone-showcase-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  .card-strategy,
+  .card-creative,
+  .card-growth,
+  .card-results {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin: 4px auto !important;
+    transform: none !important;
+  }
+
+  .hero .phone-value-card {
+    display: inline-flex !important;
+    position: static !important;
+    margin: 4px !important;
+    transform: none !important;
+  }
+}
 </style>
 
 </head>
@@ -3844,7 +4068,7 @@ body { overflow: visible !important; }
                 <!-- Project 1 -->
                 <div class="portfolio-card">
                     <div class="portfolio-thumb-wrap">
-                        <img src="new%20photos/1.png" alt="Social Fasttag Pro">
+                        <img src="photos/1.png" alt="Social Fasttag Pro">
                         <span class="portfolio-metric-tag">+1.2K Followers in 60 Days</span>
                     </div>
                     <div class="portfolio-body">
@@ -3870,7 +4094,7 @@ body { overflow: visible !important; }
                 <!-- Project 3 -->
                 <div class="portfolio-card">
                     <div class="portfolio-thumb-wrap">
-                        <img src="new%20photos/2.png" alt="S.Sense Salon & Spa">
+                        <img src="photos/2.png" alt="S.Sense Salon & Spa">
                         <span class="portfolio-metric-tag">+3.5K Organic Followers</span>
                     </div>
                     <div class="portfolio-body">
@@ -3883,7 +4107,7 @@ body { overflow: visible !important; }
                 <!-- Project 4 -->
                 <div class="portfolio-card">
                     <div class="portfolio-thumb-wrap">
-                        <img src="new%20photos/3.png" alt="Manasi">
+                        <img src="photos/3.png" alt="Manasi">
                         <span class="portfolio-metric-tag">148+ Video Edits</span>
                     </div>
                     <div class="portfolio-body">
@@ -3909,7 +4133,7 @@ body { overflow: visible !important; }
                 <!-- Project 6 -->
                 <div class="portfolio-card">
                     <div class="portfolio-thumb-wrap">
-                        <img src="new%20photos/4.png" alt="Yashuuu">
+                        <img src="photos/4.png" alt="Yashuuu">
                         <span class="portfolio-metric-tag">715 Organic Audience</span>
                     </div>
                     <div class="portfolio-body">
@@ -4273,7 +4497,7 @@ function toggleMobileMenu() {
         const isOpen = navLinks.classList.contains('open');
         if (!isOpen) {
             navLinks.classList.add('open');
-            if (mobileBtn) mobileBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+            if (mobileBtn) mobileBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
             document.body.style.overflow = 'hidden';
         } else {
             navLinks.classList.remove('open');
