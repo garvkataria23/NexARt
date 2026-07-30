@@ -3719,6 +3719,160 @@ html, body {
 }
 </style>
 
+<style id="hero-value-cards-css">
+/* Override all phone-value-card styles */
+.hero-value-cards {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.phone-showcase-container {
+    position: relative !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+    z-index: 10;
+}
+
+.phone-showcase-card {
+    z-index: 5 !important;
+    position: relative;
+}
+
+div.phone-value-card { 
+    position: absolute !important; 
+    width: 170px !important; 
+    height: auto !important; 
+    display: flex !important; 
+    flex-direction: row !important; 
+    align-items: center !important; 
+    gap: 12px !important; 
+    border-radius: 16px !important; 
+    color: #FFFFFF !important; 
+    font-size: 13px !important; 
+    font-weight: 700 !important; 
+    text-align: left !important;
+    padding: 12px 16px !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    pointer-events: auto !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4) !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+}
+
+div.phone-value-card-icon {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    flex-shrink: 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+div.phone-value-card svg { width: 18px !important; height: 18px !important; }
+
+/* Desktop Positions */
+div.card-strategy { 
+    top: 25% !important; 
+    left: -120px !important; 
+    background: rgba(230, 0, 0, 0.85) !important; 
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    transform: rotate(-5deg) translateZ(-10px) !important;
+}
+div.card-creative { 
+    top: 55% !important; 
+    left: -140px !important; 
+    background: rgba(20, 20, 28, 0.85) !important; 
+    border: 1px solid rgba(255, 255, 255, 0.18) !important; 
+    transform: rotate(-3deg) translateZ(-15px) !important;
+}
+div.card-growth { 
+    top: 35% !important; 
+    right: -120px !important; 
+    background: rgba(20, 20, 28, 0.85) !important; 
+    border: 1px solid rgba(255, 255, 255, 0.18) !important; 
+    transform: rotate(3deg) translateZ(-15px) !important;
+}
+div.card-results { 
+    top: 65% !important; 
+    right: -140px !important; 
+    background: rgba(230, 0, 0, 0.85) !important; 
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    transform: rotate(5deg) translateZ(-10px) !important;
+}
+
+/* Mobile Positions */
+@media (max-width: 1024px) {
+    .phone-showcase-container {
+        flex-direction: column !important;
+    }
+    div.phone-value-card {
+        width: 140px !important;
+        padding: 8px 12px !important;
+        font-size: 11px !important;
+        border-radius: 12px !important;
+    }
+    div.phone-value-card-icon {
+        width: 28px !important;
+        height: 28px !important;
+    }
+    div.phone-value-card svg {
+        width: 14px !important;
+        height: 14px !important;
+    }
+    div.card-strategy { left: 10% !important; top: 15% !important; }
+    div.card-creative { left: 5% !important; top: 45% !important; }
+    div.card-growth { right: 10% !important; top: 25% !important; }
+    div.card-results { right: 5% !important; top: 55% !important; }
+}
+
+@media (max-width: 768px) {
+    div.phone-value-card {
+        width: 120px !important;
+        padding: 6px 10px !important;
+        font-size: 10px !important;
+    }
+    div.card-strategy { left: 5% !important; top: 15% !important; }
+    div.card-creative { left: 2% !important; top: 45% !important; }
+    div.card-growth { right: 5% !important; top: 25% !important; }
+    div.card-results { right: 2% !important; top: 55% !important; }
+}
+
+@media (max-width: 480px) {
+    div.phone-value-card {
+        width: 90px !important;
+        padding: 6px 6px !important;
+        font-size: 8px !important;
+        gap: 6px !important;
+        border-radius: 10px !important;
+    }
+    div.phone-value-card-icon {
+        width: 22px !important;
+        height: 22px !important;
+    }
+    div.phone-value-card svg {
+        width: 12px !important;
+        height: 12px !important;
+    }
+    div.card-strategy { left: 5% !important; top: 10% !important; transform: rotate(-5deg) translateZ(0) !important; }
+    div.card-creative { left: 2% !important; top: 55% !important; transform: rotate(-3deg) translateZ(0) !important; }
+    div.card-growth { right: 5% !important; top: 25% !important; transform: rotate(3deg) translateZ(0) !important; }
+    div.card-results { right: 2% !important; top: 70% !important; transform: rotate(5deg) translateZ(0) !important; }
+}
+</style>
+
 </head>
 <body>
 
@@ -3783,31 +3937,6 @@ html, body {
                                 <div class="stat-val">+300% Growth</div>
                                 <div class="stat-lbl">Avg. Client Engagement</div>
                             </div>
-                        </div>
-
-                        <div class="phone-value-card card-strategy">
-                            <div class="phone-value-card-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 4V2M20 12h2M12 22v-2M2 12h2"/></svg>
-                            </div>
-                            <span>Content Strategy</span>
-                        </div>
-                        <div class="phone-value-card card-creative">
-                            <div class="phone-value-card-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M8.5 14.5C6.9 13.3 6 11.4 6 9.2a6 6 0 1 1 12 0c0 2.2-.9 4.1-2.5 5.3-.8.6-1.5 1.6-1.5 2.5h-4c0-.9-.7-1.9-1.5-2.5Z"/><path d="M12 3V1M4.2 5.2 2.8 3.8M19.8 5.2l1.4-1.4"/></svg>
-                            </div>
-                            <span>Creative Content</span>
-                        </div>
-                        <div class="phone-value-card card-growth">
-                            <div class="phone-value-card-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M4 19V5M4 19h16"/><path d="m8 15 3-4 3 2 5-6"/><path d="M16 7h3v3"/></svg>
-                            </div>
-                            <span>Brand Growth</span>
-                        </div>
-                        <div class="phone-value-card card-results">
-                            <div class="phone-value-card-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19V5M4 19h16"/><path d="m8 15 3-4 3 2 5-6"/><path d="M16 7h3v3"/></svg>
-                            </div>
-                            <span>Results Driven</span>
                         </div>
 
                         <!-- Phone Inner Instagram Screen -->
@@ -3943,6 +4072,33 @@ html, body {
                                 <div class="banner-subtext">Full Content Strategy & Growth</div>
                             </div>
                             <button class="banner-action-btn" onclick="openModal('Beauty & Lifestyle Creator Case Study', 'Detailed breakdown of +300% engagement growth, 1.2K+ organic follower surge, and viral reel strategy implemented for this creator profile.')">Case Study</button>
+                        </div>
+                    </div>
+
+                    <div class="hero-value-cards">
+                        <div class="phone-value-card card-strategy">
+                            <div class="phone-value-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 4V2M20 12h2M12 22v-2M2 12h2"/></svg>
+                            </div>
+                            <span>Content Strategy</span>
+                        </div>
+                        <div class="phone-value-card card-creative">
+                            <div class="phone-value-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M8.5 14.5C6.9 13.3 6 11.4 6 9.2a6 6 0 1 1 12 0c0 2.2-.9 4.1-2.5 5.3-.8.6-1.5 1.6-1.5 2.5h-4c0-.9-.7-1.9-1.5-2.5Z"/><path d="M12 3V1M4.2 5.2 2.8 3.8M19.8 5.2l1.4-1.4"/></svg>
+                            </div>
+                            <span>Creative Content</span>
+                        </div>
+                        <div class="phone-value-card card-growth">
+                            <div class="phone-value-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M4 19V5M4 19h16"/><path d="m8 15 3-4 3 2 5-6"/><path d="M16 7h3v3"/></svg>
+                            </div>
+                            <span>Brand Growth</span>
+                        </div>
+                        <div class="phone-value-card card-results">
+                            <div class="phone-value-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19V5M4 19h16"/><path d="m8 15 3-4 3 2 5-6"/><path d="M16 7h3v3"/></svg>
+                            </div>
+                            <span>Results Driven</span>
                         </div>
                     </div>
                 </div>
