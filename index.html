@@ -584,11 +584,18 @@
 
         /* ===== LOGO MARQUEE ===== */
         .marquee-section {
-            padding: 30px 0;
+            padding: 24px 0 !important;
             border-top: 1px solid var(--border-subtle);
             border-bottom: 1px solid var(--border-subtle);
             background: var(--surface-1);
-            overflow: hidden;
+            overflow: hidden !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
         }
 
         .marquee-track-wrap {
@@ -3053,15 +3060,18 @@ body.light-mode .text-gradient {
     }
 
     .marquee-section {
-        height: 140px;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        box-sizing: border-box;
+        height: auto !important;
+        min-height: 110px !important;
+        padding: 16px 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
     }
 
     .marquee-track-wrap {
-        width: 100%;
+        width: 100% !important;
     }
 }
 </style>
