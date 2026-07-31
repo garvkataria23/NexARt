@@ -2018,6 +2018,31 @@ html, body {
   font-size: 12px;
   color: var(--accent-red-bright);
 }
+
+@media (max-width: 768px) {
+  .lightbox-modal {
+    padding: 0;
+  }
+  .lightbox-close-btn {
+    top: 15px;
+    right: 15px;
+    background: rgba(13, 13, 17, 0.7);
+    border: none;
+  }
+  .lightbox-img-container {
+    max-width: 100vw;
+    max-height: 85vh;
+    margin-top: 20px;
+  }
+  .lightbox-img-container img {
+    max-width: 95vw;
+    max-height: 85vh;
+    border-radius: 8px;
+    object-fit: contain; /* strict contain to avoid cuts */
+    box-shadow: none;
+    border: none;
+  }
+}
 </style>
 
 
@@ -2192,20 +2217,23 @@ html, body {
 }
 
 .portfolio-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--surface-3);
-  border: 1px solid var(--border-subtle);
+  border: 4px solid transparent;
+  background-clip: padding-box;
+  box-sizing: content-box;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
+  padding: 4px; /* Increases hit area */
 }
 
 .portfolio-dot.active {
   background: var(--accent-red);
-  border-color: var(--accent-red);
+  background-clip: padding-box;
   width: 26px;
-  border-radius: 6px;
+  border-radius: 10px;
 }
 </style>
 
@@ -4652,6 +4680,7 @@ div.card-results {
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.portfolio-grid');
     const dotsWrap = document.getElementById('portfolioDotsWrap');
+    let autoScrollInterval = null;
 
     if (grid && dotsWrap) {
         const cards = grid.querySelectorAll('.portfolio-card');
@@ -4662,23 +4691,31 @@ document.addEventListener('DOMContentLoaded', () => {
             dot.className = 'portfolio-dot' + (index === 0 ? ' active' : '');
             dot.setAttribute('aria-label', 'Go to project ' + (index + 1));
             
-            dot.addEventListener('click', () => {
+            const handleDotTap = (e) => {
+                if(e) e.preventDefault();
                 const cardLeft = card.offsetLeft - grid.offsetLeft;
                 grid.scrollTo({
                     left: cardLeft,
                     behavior: 'smooth'
                 });
-            });
+                resetAutoScroll();
+            };
+
+            dot.addEventListener('click', handleDotTap);
+            dot.addEventListener('touchstart', handleDotTap, { passive: false });
 
             dotsWrap.appendChild(dot);
         });
 
-        // Track swipe scroll position to update active dot dynamically
-        grid.addEventListener('scroll', () => {
+        const getActiveIndex = () => {
             const scrollPos = grid.scrollLeft;
             const cardWidth = cards[0] ? (cards[0].offsetWidth + 16) : 300;
-            const activeIndex = Math.round(scrollPos / cardWidth);
+            return Math.round(scrollPos / cardWidth);
+        };
 
+        // Track swipe scroll position to update active dot dynamically
+        grid.addEventListener('scroll', () => {
+            const activeIndex = getActiveIndex();
             const dots = dotsWrap.querySelectorAll('.portfolio-dot');
             dots.forEach((dot, idx) => {
                 if (idx === activeIndex) {
@@ -4687,6 +4724,51 @@ document.addEventListener('DOMContentLoaded', () => {
                     dot.classList.remove('active');
                 }
             });
+        }, { passive: true });
+
+        // Auto Scroll for Mobile View (every 5 seconds)
+        const startAutoScroll = () => {
+            if (window.innerWidth <= 768) {
+                if (!autoScrollInterval) {
+                    autoScrollInterval = setInterval(() => {
+                        let currentIndex = getActiveIndex();
+                        let nextIndex = (currentIndex + 1) % cards.length;
+                        const nextCard = cards[nextIndex];
+                        if (nextCard) {
+                            const cardLeft = nextCard.offsetLeft - grid.offsetLeft;
+                            grid.scrollTo({
+                                left: cardLeft,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }, 5000);
+                }
+            } else {
+                stopAutoScroll();
+            }
+        };
+
+        const stopAutoScroll = () => {
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+                autoScrollInterval = null;
+            }
+        };
+
+        const resetAutoScroll = () => {
+            stopAutoScroll();
+            startAutoScroll();
+        };
+
+        startAutoScroll();
+        window.addEventListener('resize', () => {
+            stopAutoScroll();
+            startAutoScroll();
+        });
+
+        grid.addEventListener('touchstart', stopAutoScroll, { passive: true });
+        grid.addEventListener('touchend', () => {
+            setTimeout(startAutoScroll, 3000); // Resume after 3s of no touch
         }, { passive: true });
     }
 });
@@ -4778,14 +4860,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     cards.forEach((card, idx) => {
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', () => {
-            updateLightbox(idx);
-            if (modal) {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        });
+        const thumb = card.querySelector('.portfolio-thumb-wrap');
+        if (thumb) {
+            thumb.style.cursor = 'pointer';
+            thumb.addEventListener('click', () => {
+                updateLightbox(idx);
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        }
     });
 
     if (closeBtn && modal) {
