@@ -1972,7 +1972,99 @@ html, body {
 
 
 <style id="portfolio-swipe-lightbox">
-/* ===== MOBILE TOUCH SWIPE CAROUSEL ===== */
+/* ===== 3D GALLERY MOBILE RESPONSIVE STYLES (ENHANCED MOBILE TEXT VISIBILITY) ===== */
+@media (max-width: 768px) {
+  .portfolio-3d-wrapper {
+    height: 440px !important;
+  }
+  .portfolio-3d-card-wrap {
+    width: 250px !important;
+    height: 370px !important;
+    margin-left: -125px !important;
+    margin-top: -185px !important;
+  }
+  .portfolio-3d-card-wrap .portfolio-thumb-wrap {
+    height: 190px !important;
+  }
+  .portfolio-3d-card-wrap .portfolio-body {
+    padding: 14px 16px !important;
+    background: #111116 !important;
+  }
+  .portfolio-3d-card-wrap .portfolio-category {
+    font-size: 11px !important;
+    letter-spacing: 0.06em !important;
+    color: #FF5555 !important;
+  }
+  .portfolio-3d-card-wrap .portfolio-title {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+    margin-bottom: 4px !important;
+  }
+  .portfolio-3d-card-wrap .portfolio-desc {
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    color: #D1D5DB !important;
+  }
+  .portfolio-3d-card-wrap .portfolio-metric-tag {
+    font-size: 11px !important;
+    padding: 5px 12px !important;
+  }
+}
+@media (max-width: 480px) {
+  .portfolio-3d-wrapper {
+    height: 420px !important;
+  }
+  .portfolio-3d-card-wrap {
+    width: 230px !important;
+    height: 350px !important;
+    margin-left: -115px !important;
+    margin-top: -175px !important;
+  }
+  .portfolio-3d-card-wrap .portfolio-thumb-wrap {
+    height: 180px !important;
+  }
+  .portfolio-3d-card-wrap .portfolio-body {
+    padding: 12px 14px !important;
+    background: #111116 !important;
+  }
+  .portfolio-3d-card-wrap .portfolio-category {
+    font-size: 10px !important;
+    color: #FF5555 !important;
+  }
+/* ===== 3D PORTFOLIO CARDS THEME PRESERVATION (DARK CARDS IN ALL MODES) ===== */
+body.light-mode .portfolio-card {
+  background: #111116 !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4) !important;
+}
+body.light-mode .portfolio-card .portfolio-body {
+  background: #111116 !important;
+}
+body.light-mode .portfolio-card .portfolio-title {
+  color: #FFFFFF !important;
+}
+body.light-mode .portfolio-card .portfolio-desc {
+  color: #9CA3AF !important;
+}
+body.light-mode .portfolio-card .portfolio-category {
+  color: #EF4444 !important;
+}
+body.light-mode .portfolio-card .portfolio-metric-tag {
+  background: #EF4444 !important;
+  border-color: #FF6B6B !important;
+  color: #FFFFFF !important;
+}
+  .portfolio-3d-card-wrap .portfolio-desc {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    color: #D1D5DB !important;
+  }
+  .portfolio-3d-card-wrap .portfolio-metric-tag {
+    font-size: 10px !important;
+    padding: 4px 10px !important;
+  }
+}
 @media (max-width: 768px) {
   .portfolio-grid {
     display: flex;
@@ -2040,7 +2132,7 @@ html, body {
   background: rgba(13, 13, 17, 0.85);
   backdrop-filter: blur(8px);
   border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
+  color: #FFFFFF;
   font-family: var(--font-mono);
   font-size: 11px;
   padding: 4px 12px;
@@ -4770,88 +4862,100 @@ div.card-results {
                 <p class="section-desc">A snapshot of real brand transformations and content management executed by our team.</p>
             </div>
 
-            <div class="portfolio-grid">
-                <!-- Project 1 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-thumb-wrap">
-                        <img src="photos/1.png" alt="Social Fasttag Pro">
-                        <span class="portfolio-metric-tag">+1.2K Followers in 60 Days</span>
+            <!-- Animated 3D Circular Gallery Showcase -->
+            <div class="portfolio-3d-wrapper" style="position: relative; width: 100%; height: 560px; overflow: visible; perspective: 1600px; display: flex; align-items: center; justify-content: center; padding: 10px 0;">
+                <div class="portfolio-3d-carousel" id="portfolio3DCarousel" style="position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.15s ease-out;">
+                    <!-- Project 1 -->
+                    <div class="portfolio-3d-card-wrap" style="position: absolute; width: 340px; height: 460px; left: 50%; top: 50%; margin-left: -170px; margin-top: -230px; transition: transform 0.3s ease, opacity 0.3s ease;">
+                        <div class="portfolio-card" style="position: relative; width: 100%; height: 100%; border-radius: 20px; overflow: hidden; background: #111116; border: 2px solid rgba(239, 68, 68, 0.4); box-shadow: 0 20px 45px rgba(0,0,0,0.85);">
+                            <div class="portfolio-thumb-wrap" style="height: 280px; background: #000000; position: relative;">
+                                <img src="photos/1.png" alt="Social Fasttag Pro" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+                                <span class="portfolio-metric-tag" style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.85); border: 1px solid var(--accent-red); color: #FF4D4D; padding: 5px 12px; border-radius: 999px; font-family: var(--font-mono); font-size: 12px; font-weight: 700;">+1.2K Followers</span>
+                            </div>
+                            <div class="portfolio-body" style="padding: 16px 20px; background: #111116;">
+                                <span class="portfolio-category" style="color: #EF4444; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px;">Social Media — Marketing</span>
+                                <h3 class="portfolio-title" style="font-size: 20px; font-weight: 800; color: #FFFFFF; margin-bottom: 4px;">Social Fasttag Pro</h3>
+                                <p class="portfolio-desc" style="font-size: 13px; color: #9CA3AF; line-height: 1.4;">Influencer marketing, PR campaigns, and social media management.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="portfolio-body">
-                        <span class="portfolio-category">Social Media — Marketing</span>
-                        <h3 class="portfolio-title">Social Fasttag Pro</h3>
-                        <p class="portfolio-desc">Influencer marketing, PR campaigns, and social media management.</p>
-                    </div>
-                </div>
 
-                <!-- Project 2 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-thumb-wrap">
-                        <img src="photos/client-travel.jpg" alt="Kristy">
-                        <span class="portfolio-metric-tag">Full Brand Launch</span>
+                    <!-- Project 2 -->
+                    <div class="portfolio-3d-card-wrap" style="position: absolute; width: 340px; height: 460px; left: 50%; top: 50%; margin-left: -170px; margin-top: -230px; transition: transform 0.3s ease, opacity 0.3s ease;">
+                        <div class="portfolio-card" style="position: relative; width: 100%; height: 100%; border-radius: 20px; overflow: hidden; background: #111116; border: 2px solid rgba(239, 68, 68, 0.4); box-shadow: 0 20px 45px rgba(0,0,0,0.85);">
+                            <div class="portfolio-thumb-wrap" style="height: 280px; background: #000000; position: relative;">
+                                <img src="photos/client-travel.jpg" alt="Kristy" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+                                <span class="portfolio-metric-tag" style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.85); border: 1px solid var(--accent-red); color: #FF4D4D; padding: 5px 12px; border-radius: 999px; font-family: var(--font-mono); font-size: 12px; font-weight: 700;">Full Brand Launch</span>
+                            </div>
+                            <div class="portfolio-body" style="padding: 16px 20px; background: #111116;">
+                                <span class="portfolio-category" style="color: #EF4444; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px;">Creator — Brand Launch</span>
+                                <h3 class="portfolio-title" style="font-size: 20px; font-weight: 800; color: #FFFFFF; margin-bottom: 4px;">Kristy</h3>
+                                <p class="portfolio-desc" style="font-size: 13px; color: #9CA3AF; line-height: 1.4;">Creator profile setup, content positioning, and launch strategy.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="portfolio-body">
-                        <span class="portfolio-category">Creator — Brand Launch</span>
-                        <h3 class="portfolio-title">Kristy</h3>
-                        <p class="portfolio-desc">Creator profile setup, content positioning, and launch strategy.</p>
-                    </div>
-                </div>
 
-                <!-- Project 3 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-thumb-wrap">
-                        <img src="photos/2.png" alt="S.Sense Salon & Spa">
-                        <span class="portfolio-metric-tag">+3.5K Organic Followers</span>
+                    <!-- Project 3 -->
+                    <div class="portfolio-3d-card-wrap" style="position: absolute; width: 340px; height: 460px; left: 50%; top: 50%; margin-left: -170px; margin-top: -230px; transition: transform 0.3s ease, opacity 0.3s ease;">
+                        <div class="portfolio-card" style="position: relative; width: 100%; height: 100%; border-radius: 20px; overflow: hidden; background: #111116; border: 2px solid rgba(239, 68, 68, 0.4); box-shadow: 0 20px 45px rgba(0,0,0,0.85);">
+                            <div class="portfolio-thumb-wrap" style="height: 280px; background: #000000; position: relative;">
+                                <img src="photos/2.png" alt="S.Sense Salon & Spa" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+                                <span class="portfolio-metric-tag" style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.85); border: 1px solid var(--accent-red); color: #FF4D4D; padding: 5px 12px; border-radius: 999px; font-family: var(--font-mono); font-size: 12px; font-weight: 700;">+3.5K Followers</span>
+                            </div>
+                            <div class="portfolio-body" style="padding: 16px 20px; background: #111116;">
+                                <span class="portfolio-category" style="color: #EF4444; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px;">Beauty Salon — Content</span>
+                                <h3 class="portfolio-title" style="font-size: 20px; font-weight: 800; color: #FFFFFF; margin-bottom: 4px;">S.Sense Salon & Spa</h3>
+                                <p class="portfolio-desc" style="font-size: 13px; color: #9CA3AF; line-height: 1.4;">Salon content, service promotions, and local audience growth.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="portfolio-body">
-                        <span class="portfolio-category">Beauty Salon — Content</span>
-                        <h3 class="portfolio-title">S.Sense Salon & Spa</h3>
-                        <p class="portfolio-desc">Salon content, service promotions, and local audience growth.</p>
-                    </div>
-                </div>
 
-                <!-- Project 4 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-thumb-wrap">
-                        <img src="photos/3.png" alt="Manasi">
-                        <span class="portfolio-metric-tag">148+ Video Edits</span>
+                    <!-- Project 4 (Manasi) -->
+                    <div class="portfolio-3d-card-wrap" style="position: absolute; width: 340px; height: 460px; left: 50%; top: 50%; margin-left: -170px; margin-top: -230px; transition: transform 0.3s ease, opacity 0.3s ease;">
+                        <div class="portfolio-card" style="position: relative; width: 100%; height: 100%; border-radius: 20px; overflow: hidden; background: #111116; border: 2px solid rgba(239, 68, 68, 0.4); box-shadow: 0 20px 45px rgba(0,0,0,0.85);">
+                            <div class="portfolio-thumb-wrap" style="height: 280px; background: #EF4444; position: relative;">
+                                <img src="photos/3.png" alt="Manasi" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+                                <span class="portfolio-metric-tag" style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.85); border: 1px solid var(--accent-red); color: #FF4D4D; padding: 5px 12px; border-radius: 999px; font-family: var(--font-mono); font-size: 12px; font-weight: 700;">148+ Video Edits</span>
+                            </div>
+                            <div class="portfolio-body" style="padding: 16px 20px; background: #111116;">
+                                <span class="portfolio-category" style="color: #EF4444; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px;">BEAUTY — CREATOR CONTENT</span>
+                                <h3 class="portfolio-title" style="font-size: 20px; font-weight: 800; color: #FFFFFF; margin-bottom: 4px;">Manasi</h3>
+                                <p class="portfolio-desc" style="font-size: 13px; color: #9CA3AF; line-height: 1.4;">Beauty, skincare, and lifestyle content editing for creator growth.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="portfolio-body">
-                        <span class="portfolio-category">Beauty — Creator Content</span>
-                        <h3 class="portfolio-title">Manasi</h3>
-                        <p class="portfolio-desc">Beauty, skincare, and lifestyle content editing for creator growth.</p>
-                    </div>
-                </div>
 
-                <!-- Project 5 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-thumb-wrap">
-                        <img src="photos/client-music.jpg" alt="Natsu">
-                        <span class="portfolio-metric-tag">207 Followers in 14 Days</span>
+                    <!-- Project 5 -->
+                    <div class="portfolio-3d-card-wrap" style="position: absolute; width: 340px; height: 460px; left: 50%; top: 50%; margin-left: -170px; margin-top: -230px; transition: transform 0.3s ease, opacity 0.3s ease;">
+                        <div class="portfolio-card" style="position: relative; width: 100%; height: 100%; border-radius: 20px; overflow: hidden; background: #111116; border: 2px solid rgba(239, 68, 68, 0.4); box-shadow: 0 20px 45px rgba(0,0,0,0.85);">
+                            <div class="portfolio-thumb-wrap" style="height: 280px; background: #000000; position: relative;">
+                                <img src="photos/client-music.jpg" alt="Natsu" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+                                <span class="portfolio-metric-tag" style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.85); border: 1px solid var(--accent-red); color: #FF4D4D; padding: 5px 12px; border-radius: 999px; font-family: var(--font-mono); font-size: 12px; font-weight: 700;">207 Followers / 14D</span>
+                            </div>
+                            <div class="portfolio-body" style="padding: 16px 20px; background: #111116;">
+                                <span class="portfolio-category" style="color: #EF4444; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px;">Branding — Music</span>
+                                <h3 class="portfolio-title" style="font-size: 20px; font-weight: 800; color: #FFFFFF; margin-bottom: 4px;">Natsu</h3>
+                                <p class="portfolio-desc" style="font-size: 13px; color: #9CA3AF; line-height: 1.4;">Reels creation, cover art graphics, and targeted musician outreach.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="portfolio-body">
-                        <span class="portfolio-category">Branding — Music</span>
-                        <h3 class="portfolio-title">Natsu</h3>
-                        <p class="portfolio-desc">Reels creation, cover art graphics, and targeted musician outreach.</p>
-                    </div>
-                </div>
 
-                <!-- Project 6 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-thumb-wrap">
-                        <img src="photos/4.png" alt="Yashuuu">
-                        <span class="portfolio-metric-tag">715 Organic Audience</span>
-                    </div>
-                    <div class="portfolio-body">
-                        <span class="portfolio-category">Lifestyle — Creator Content</span>
-                        <h3 class="portfolio-title">Yashuuu</h3>
-                        <p class="portfolio-desc">Lifestyle visuals, profile content planning, and organic audience growth.</p>
+                    <!-- Project 6 -->
+                    <div class="portfolio-3d-card-wrap" style="position: absolute; width: 340px; height: 460px; left: 50%; top: 50%; margin-left: -170px; margin-top: -230px; transition: transform 0.3s ease, opacity 0.3s ease;">
+                        <div class="portfolio-card" style="position: relative; width: 100%; height: 100%; border-radius: 20px; overflow: hidden; background: #111116; border: 2px solid rgba(239, 68, 68, 0.4); box-shadow: 0 20px 45px rgba(0,0,0,0.85);">
+                            <div class="portfolio-thumb-wrap" style="height: 280px; background: #000000; position: relative;">
+                                <img src="photos/4.png" alt="Yashuuu" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+                                <span class="portfolio-metric-tag" style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.85); border: 1px solid var(--accent-red); color: #FF4D4D; padding: 5px 12px; border-radius: 999px; font-family: var(--font-mono); font-size: 12px; font-weight: 700;">715 Audience</span>
+                            </div>
+                            <div class="portfolio-body" style="padding: 16px 20px; background: #111116;">
+                                <span class="portfolio-category" style="color: #EF4444; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px;">Lifestyle — Creator Content</span>
+                                <h3 class="portfolio-title" style="font-size: 20px; font-weight: 800; color: #FFFFFF; margin-bottom: 4px;">Yashuuu</h3>
+                                <p class="portfolio-desc" style="font-size: 13px; color: #9CA3AF; line-height: 1.4;">Lifestyle visuals, profile content planning, and organic audience growth.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Portfolio Dynamic Dots Container -->
-            <div class="portfolio-dots-wrap" id="portfolioDotsWrap"></div>
         </div>
     </section>
 
@@ -5164,101 +5268,94 @@ div.card-results {
 
 <script id="portfolio-dots-js">
 document.addEventListener('DOMContentLoaded', () => {
-    const grid = document.querySelector('.portfolio-grid');
-    const dotsWrap = document.getElementById('portfolioDotsWrap');
-    let autoScrollInterval = null;
+    const carousel = document.getElementById('portfolio3DCarousel');
+    const cards = carousel ? carousel.querySelectorAll('.portfolio-3d-card-wrap') : [];
 
-    if (grid && dotsWrap) {
-        const cards = grid.querySelectorAll('.portfolio-card');
-        dotsWrap.innerHTML = '';
+    if (carousel && cards.length > 0) {
+        let currentRotation = 0;
+        let isUserInteracting = false;
+        let interactionTimeout = null;
+        let touchStartX = 0;
 
-        cards.forEach((card, index) => {
-            const dot = document.createElement('button');
-            dot.className = 'portfolio-dot' + (index === 0 ? ' active' : '');
-            dot.setAttribute('aria-label', 'Go to project ' + (index + 1));
-            
-            const handleDotTap = (e) => {
-                if(e) e.preventDefault();
-                const cardLeft = card.offsetLeft - grid.offsetLeft;
-                grid.scrollTo({
-                    left: cardLeft,
-                    behavior: 'smooth'
-                });
-                resetAutoScroll();
-            };
+        function getRadius() {
+            const width = window.innerWidth;
+            if (width <= 480) return 260; // Increased spacing on mobile screens
+            if (width <= 768) return 340;
+            return Math.min(width * 0.32, 420);
+        }
 
-            dot.addEventListener('click', handleDotTap);
-            dot.addEventListener('touchstart', handleDotTap, { passive: false });
+        const angleStep = 360 / cards.length;
 
-            dotsWrap.appendChild(dot);
-        });
+        // Position cards in 3D circular layout
+        function updateCardsPosition() {
+            const radius = getRadius();
 
-        const getActiveIndex = () => {
-            const scrollPos = grid.scrollLeft;
-            return Array.from(cards).reduce((closestIndex, card, index) => {
-                const cardLeft = card.offsetLeft - grid.offsetLeft;
-                const closestLeft = cards[closestIndex].offsetLeft - grid.offsetLeft;
-                return Math.abs(cardLeft - scrollPos) < Math.abs(closestLeft - scrollPos) ? index : closestIndex;
-            }, 0);
-        };
+            cards.forEach((card, index) => {
+                const itemAngle = index * angleStep;
+                const totalRotation = currentRotation % 360;
+                const relativeAngle = (itemAngle + totalRotation + 360) % 360;
+                const normalizedAngle = Math.abs(relativeAngle > 180 ? 360 - relativeAngle : relativeAngle);
 
-        // Track swipe scroll position to update active dot dynamically
-        grid.addEventListener('scroll', () => {
-            const activeIndex = getActiveIndex();
-            const dots = dotsWrap.querySelectorAll('.portfolio-dot');
-            dots.forEach((dot, idx) => {
-                if (idx === activeIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
+                // Pure horizontal 3D rotation along a stable axis (no vertical shift / no up-down motion)
+                card.style.transition = 'none';
+                card.style.transform = `rotateY(${itemAngle}deg) translateZ(${radius}px)`;
+                card.style.opacity = '1';
+                card.style.zIndex = Math.round(1000 - normalizedAngle);
             });
+            carousel.style.transform = `rotateY(${currentRotation}deg)`;
+        }
+
+        // Continuous subtle auto-rotation
+        function animate() {
+            if (!isUserInteracting) {
+                currentRotation += 0.15;
+                updateCardsPosition();
+            }
+            requestAnimationFrame(animate);
+        }
+
+        // Touch & Drag controls for smooth swipe on Mobile
+        carousel.parentElement.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                touchStartX = e.touches[0].clientX;
+                isUserInteracting = true;
+                if (interactionTimeout) clearTimeout(interactionTimeout);
+            }
         }, { passive: true });
 
-        // Auto Scroll for Mobile View (every 3 seconds)
-        const startAutoScroll = () => {
-            if (window.innerWidth <= 768) {
-                if (!autoScrollInterval) {
-                    autoScrollInterval = setInterval(() => {
-                        let currentIndex = getActiveIndex();
-                        let nextIndex = (currentIndex + 1) % cards.length;
-                        const nextCard = cards[nextIndex];
-                        if (nextCard) {
-                            const cardLeft = nextCard.offsetLeft - grid.offsetLeft;
-                            grid.scrollTo({
-                                left: cardLeft,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }, 3000);
-                }
-            } else {
-                stopAutoScroll();
+        carousel.parentElement.addEventListener('touchmove', (e) => {
+            if (e.touches.length === 1) {
+                const deltaX = e.touches[0].clientX - touchStartX;
+                touchStartX = e.touches[0].clientX;
+                currentRotation += deltaX * 0.4;
+                updateCardsPosition();
             }
-        };
-
-        const stopAutoScroll = () => {
-            if (autoScrollInterval) {
-                clearInterval(autoScrollInterval);
-                autoScrollInterval = null;
-            }
-        };
-
-        const resetAutoScroll = () => {
-            stopAutoScroll();
-            startAutoScroll();
-        };
-
-        startAutoScroll();
-        window.addEventListener('resize', () => {
-            stopAutoScroll();
-            startAutoScroll();
-        });
-
-        grid.addEventListener('touchstart', stopAutoScroll, { passive: true });
-        grid.addEventListener('touchend', () => {
-            setTimeout(startAutoScroll, 3000); // Resume after 3s of no touch
         }, { passive: true });
+
+        carousel.parentElement.addEventListener('touchend', () => {
+            interactionTimeout = setTimeout(() => {
+                isUserInteracting = false;
+            }, 2000);
+        }, { passive: true });
+
+        // Scroll listener to rotate gallery smoothly with page scroll
+        window.addEventListener('scroll', () => {
+            isUserInteracting = true;
+            if (interactionTimeout) clearTimeout(interactionTimeout);
+
+            const scrollProgress = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight || 1);
+            currentRotation = scrollProgress * 720;
+            updateCardsPosition();
+
+            interactionTimeout = setTimeout(() => {
+                isUserInteracting = false;
+            }, 1500);
+        }, { passive: true });
+
+        window.addEventListener('resize', updateCardsPosition);
+
+        updateCardsPosition();
+        requestAnimationFrame(animate);
     }
 });
 </script>
