@@ -54,6 +54,64 @@
             width: 100%;
         }
 
+        .footer-links-list a {
+            color: var(--text-muted);
+            font-size: 14px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+
+        .footer-links-list a:hover {
+            color: var(--accent-red, #EF4444) !important;
+            transform: translateX(5px);
+            text-shadow: 0 0 12px rgba(239, 68, 68, 0.3);
+        }
+
+        .back-to-top-link {
+            color: var(--text-muted);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+
+        .back-to-top-link:hover {
+            color: var(--accent-red, #EF4444);
+            transform: translateY(-3px);
+            text-shadow: 0 0 12px rgba(239, 68, 68, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .back-to-top-link {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                background: rgba(24, 24, 32, 0.92);
+                border: 1px solid rgba(239, 68, 68, 0.45);
+                color: #FFFFFF;
+                padding: 9px 18px;
+                border-radius: 999px;
+                font-size: 12px;
+                font-weight: 600;
+                line-height: 1;
+                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+                margin-top: 4px;
+            }
+
+            .back-to-top-link:hover {
+                color: var(--accent-red, #EF4444);
+            }
+
+            body.light-mode .back-to-top-link {
+                background: #FFFFFF;
+                color: #09090B;
+                border-color: rgba(239, 68, 68, 0.5);
+            }
+
+            body.light-mode .back-to-top-link:hover {
+                color: var(--accent-red, #EF4444);
+            }
+        }
+
         body {
             overflow-x: hidden;
             width: 100%;
@@ -2057,6 +2115,60 @@ html, body {
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 4px;
+  transition: var(--transition);
+}
+
+.lightbox-close-btn:hover {
+  background: var(--accent-red);
+  background: var(--accent-red, #EF4444) !important;
+  color: #FFFFFF !important;
+  border-color: var(--accent-red, #EF4444) !important;
+  transform: scale(1.1);
+}
+
+/* Explicit high-visibility Light Mode style for Close/Cancel Icon */
+body.light-mode .lightbox-close-btn {
+  background: #FFFFFF !important;
+  color: #09090B !important;
+  border: 1.5px solid rgba(9, 9, 11, 0.25) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+body.light-mode .lightbox-close-btn:hover {
+  background: #EF4444 !important;
+  color: #FFFFFF !important;
+  border-color: #EF4444 !important;
+}
+
+.lightbox-img-container {
+  max-width: 90vw;
+  max-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.lightbox-img-container img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain; /* Full uncropped photo */
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+  border: 1px solid var(--border-subtle);
+}
+
+.lightbox-caption {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.lightbox-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
 }
 
 .lightbox-tag {
@@ -2075,8 +2187,16 @@ html, body {
   .lightbox-close-btn {
     top: 15px;
     right: 15px;
-    background: rgba(13, 13, 17, 0.7);
-    border: none;
+    background: rgba(13, 13, 17, 0.85);
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  body.light-mode .lightbox-close-btn {
+    background: #FFFFFF !important;
+    color: #09090B !important;
+    border: 1.5px solid rgba(9, 9, 11, 0.3) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
   }
   .lightbox-img-container {
     width: 100%;
@@ -2660,6 +2780,13 @@ body.light-mode .btn-secondary {
   border-color: #E2E8F0;
   color: #09090B;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+body.light-mode .brand-pill:hover {
+  border-color: var(--accent-red, #EF4444) !important;
+  color: var(--accent-red, #EF4444) !important;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.2) !important;
+  transform: translateY(-2px);
 }
 
 body.light-mode .section-title,
@@ -3367,6 +3494,201 @@ body.light-mode .text-gradient {
 
   /* Services cards */
   .bento-grid { gap: 10px; }
+        height: auto !important;
+        min-height: 110px !important;
+        padding: 16px 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+
+    .marquee-track-wrap {
+        width: 100% !important;
+    }
+}
+</style>
+<style id="full-phone-shape-final">
+.phone-showcase-card { 
+    width: 320px; 
+    max-width: 320px; 
+    aspect-ratio: 9 / 19.5; 
+    box-sizing: border-box; 
+    padding: 10px; 
+    border: 2px solid #85090d; 
+    border-radius: 44px; 
+    background: linear-gradient(110deg, #7d070b 0%, #f20a12 24%, #bd0008 72%, #650306 100%); 
+    box-shadow: -12px 20px 40px rgba(230,0,0,.35), 0 10px 25px rgba(0,0,0,.35);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    image-rendering: -webkit-optimize-contrast;
+}
+.phone-showcase-card::before { content: ''; position: absolute; z-index: 8; top: 15px; left: 50%; width: 92px; height: 25px; transform: translateX(-50%); border-radius: 0 0 17px 17px; background: #050505; box-shadow: 0 2px 3px rgba(0,0,0,.75); }
+.phone-showcase-card::after { content: ''; position: absolute; left: -5px; top: 126px; width: 4px; height: 46px; border-radius: 3px 0 0 3px; background: #77070b; box-shadow: 0 62px 0 #77070b; }
+.phone-keypad { display: none; }
+.phone-inner-screen { 
+    height: 100%; 
+    max-height: none; 
+    box-sizing: border-box; 
+    border: 2px solid #141414; 
+    border-radius: 35px; 
+    -webkit-font-smoothing: antialiased;
+    image-rendering: -webkit-optimize-contrast;
+}
+.ig-profile-header { padding-top: 43px; }
+.ig-bio-tag { font-size: 14px; font-weight: 700; color: #FFFFFF; }
+.ig-bio-emojis { font-size: 14px; margin: 4px 0; }
+.ig-bio-collab { font-size: 13px; font-weight: 600; color: #F0F0F0; line-height: 1.3; }
+.ig-bio-link { font-size: 13px; font-weight: 600; color: #4094EF; }
+.ig-followers-text { font-size: 12px; color: #DDDDDD; }
+.ig-btn { font-size: 13px; font-weight: 600; padding: 6px 12px; }
+.ig-highlight-title { font-size: 12px; font-weight: 600; color: #EEEEEE; }
+@media (max-width: 640px) { .phone-showcase-card { width: 300px; max-width: 300px; transform: scale(.78) rotateZ(6deg); } }
+.phone-floating-stat, .phone-floating-banner { display: none; }
+.phone-value-card { 
+    position: absolute; 
+    z-index: 15; 
+    width: 154px; 
+    height: 136px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px; 
+    border-radius: 24px; 
+    color: #FFFFFF; 
+    font-family: var(--font-display); 
+    font-size: 13px; 
+    font-weight: 700; 
+    text-align: center;
+    line-height: 1.2; 
+    padding: 12px;
+    box-sizing: border-box;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.phone-value-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.phone-value-card svg { width: 24px; height: 24px; color: #FFFFFF; stroke-width: 2.2; }
+
+/* Exact Red & Dark Gradients matching Image 1 */
+.card-strategy { 
+    top: 30px; 
+    left: -175px; 
+    background: linear-gradient(135deg, #E60000 0%, #990000 100%); 
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 45px rgba(230, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    transform: rotate(7deg) translateZ(45px); 
+}
+
+.card-creative { 
+    top: 240px; 
+    left: -170px; 
+    background: linear-gradient(135deg, #181A20 0%, #080A0D 100%); 
+    border: 1px solid rgba(255, 255, 255, 0.18); 
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+    transform: rotate(-6deg) translateZ(35px); 
+}
+
+.card-growth { 
+    top: 100px; 
+    right: -175px; 
+    background: linear-gradient(135deg, #181A20 0%, #080A0D 100%); 
+    border: 1px solid rgba(255, 255, 255, 0.18); 
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+    transform: rotate(6deg) translateZ(35px); 
+}
+
+.card-results { 
+    top: 310px; 
+    right: -170px; 
+    background: linear-gradient(135deg, #E60000 0%, #990000 100%); 
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 45px rgba(230, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    transform: rotate(-7deg) translateZ(45px); 
+}
+
+@media (max-width: 1024px) { 
+    .phone-value-card { width: 130px; height: 115px; font-size: 11px; } 
+    .phone-value-card-icon { width: 36px; height: 36px; }
+    .phone-value-card svg { width: 20px; height: 20px; } 
+    .card-strategy { left: 0px; } 
+    .card-creative { left: 0px; } 
+    .card-growth { right: 0px; } 
+    .card-results { right: 0px; } 
+}
+</style>
+<style id="ultimate-mobile-friendly">
+/* ===== COMPREHENSIVE MOBILE OPTIMIZATION (tiny screens ≤480px, no desktop changes) ===== */
+@media (max-width: 480px) {
+  /* SCROLL FIXES: single native scrollbar on html, body visible */
+  html { overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  body { overflow-x: hidden; overflow-y: hidden; }
+  #contact { min-height: auto; }
+  #contact .cta-banner { min-height: auto; }
+  .portfolio-grid { overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
+
+  .container { padding: 0 12px; }
+
+  /* Hero - more compact on tiny screens */
+  .hero { padding-top: 72px; padding-bottom: 20px; overflow: hidden; }
+  .hero-glow-bg { width: 100%; max-width: 280px; height: 280px; left: 50%; transform: translate(-50%, -50%); }
+  .hero-title { font-size: 20px; line-height: 1.2; }
+  .hero-subtitle { font-size: 12px; line-height: 1.45; margin-bottom: 12px; }
+  .hero-metrics-pill { font-size: 10px; gap: 4px 8px; margin-bottom: 14px; }
+  .hero .hero-grid { gap: 12px; }
+  .hero-actions { flex-direction: row; flex-wrap: wrap; gap: 6px; width: 100%; justify-content: center; }
+  .hero-actions .btn { flex: 1 1 0%; min-height: 42px; padding: 8px 8px; font-size: 11px; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; gap: 4px; text-align: center; border-radius: 999px; }
+  .hero-actions .btn svg { width: 12px; height: 12px; flex-shrink: 0; }
+  .hero-actions .btn .arrow { font-size: 11px; }
+  .btn { padding: 10px 14px; font-size: 12px; }
+
+  /* Phone showcase - compact & easy to scroll past */
+  .hero .phone-showcase-card { width: 100px; max-width: 100px; transform: scale(0.9) rotateZ(2deg); border-radius: 18px; padding: 6px; }
+  .hero .phone-showcase-container { margin: 0; padding: 0; min-height: 0; touch-action: pan-y; }
+  .hero .phone-showcase-card,
+  .hero .phone-showcase-card * { pointer-events: none; }
+  .hero .phone-showcase-card { transition: none; animation: none; cursor: default; }
+  .hero .phone-showcase-card:hover { transform: scale(0.9) rotateZ(2deg); }
+  .hero .phone-showcase-card .phone-floating-stat,
+  .hero .phone-showcase-card .phone-floating-banner { display: none; }
+  .hero .phone-showcase-card .phone-inner-screen { max-height: 110px; border-radius: 10px; overflow: hidden; }
+  .hero .phone-keypad { display: grid; position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); width: 58px; grid-template-columns: repeat(3, 1fr); gap: 5px 7px; z-index: 9; pointer-events: none; opacity: 0.72; }
+  .hero .phone-keypad span { width: 7px; height: 7px; border-radius: 999px; background: rgba(255, 255, 255, 0.34); box-shadow: inset 0 1px 1px rgba(255,255,255,.22), 0 1px 3px rgba(0,0,0,.25); }
+  /* 4 value cards floating around phone — compact for mobile */
+  .hero .phone-value-card { display: flex; width: 60px; height: 52px; font-size: 6.5px; gap: 4px; border-radius: 10px; padding: 6px 4px; }
+  .hero .phone-value-card .phone-value-card-icon { width: 18px; height: 18px; }
+  .hero .phone-value-card svg { width: 10px; height: 10px; }
+  .card-strategy { top: -5px; left: 0px; }
+  .card-creative { top: 80px; left: 0px; }
+  .card-growth { top: 10px; right: 0px; }
+  .card-results { top: 95px; right: 0px; }
+
+  /* Stats - tighter fit */
+  .stats-grid { gap: 6px; }
+  .stat-box { padding: 8px 4px; border-radius: 10px; }
+  .stat-number { font-size: 17px; }
+  .stat-label { font-size: 7.5px; letter-spacing: 0; }
+
+  /* Section headers */
+  .section-header { margin-bottom: 20px; }
+  .section-title { font-size: 20px; }
+  .section-desc { font-size: 12px; }
+  #services .section-title[style] { font-size: 20px; }
+
+  /* Services cards */
+  .bento-grid { gap: 10px; }
   .bento-card { padding: 12px 10px; border-radius: 12px; }
   .bento-card .card-title { font-size: 13px; }
   .bento-card .card-desc { font-size: 11px; margin-bottom: 10px; }
@@ -3374,9 +3696,9 @@ body.light-mode .text-gradient {
   .service-card-header { gap: 10px; margin-bottom: 10px; }
   .service-learn-more { font-size: 12px; }
 
-  /* Portfolio - tighter swipe cards */
-  .portfolio-grid { gap: 10px; padding: 10px 12px 16px 12px; margin: 0 -12px; }
-  .portfolio-card { min-width: 220px; max-width: 220px; }
+  /* Portfolio - 1 card per slide full page view */
+  .portfolio-grid { gap: 0; padding: 10px 0 16px 0; margin: 0; width: 100%; }
+  .portfolio-card { min-width: 100% !important; max-width: 100% !important; width: 100% !important; flex: 0 0 100% !important; scroll-snap-align: start; scroll-snap-stop: always; }
   .portfolio-thumb-wrap { height: 150px; aspect-ratio: auto; }
   .portfolio-thumb-wrap img { object-fit: cover; object-position: top center; }
   .portfolio-body { padding: 10px; }
@@ -3916,45 +4238,10 @@ body.light-mode .text-gradient {
     .laptop-chip b { font-size: 11px; }
     .laptop-chip small { font-size: 5.5px; margin-top: 2px; }
     .laptop-lid { padding: 10px 10px 8px; border-radius: 12px; }
-    .laptop-deck { padding: 8px 12px 12px; }
-    .laptop-keyrow { gap: 3px; }
-    .laptop-key { width: 15px; }
-    .laptop-key.space { width: 110px; }
-    .laptop-trackpad { width: 70px; height: 26px; margin-top: 8px; }
-    .laptop-rail { width: 30px; }
-}
-</style>
-<style id="single-native-scrollbar">
-/* ===== SINGLE NATIVE CHROME SCROLLBAR (NO DOUBLE SCROLLBARS) ===== */
-html {
-  overflow-y: auto;
-  overflow-x: hidden;
-  height: auto;
-}
-
-body {
-  overflow-y: hidden;
-  overflow-x: hidden;
-  height: auto;
-  position: relative;
 }
 </style>
 
-<style id="perfect-mobile-responsive-system">
-/* ===== MASTER MOBILE RESPONSIVE SYSTEM & TOP-RIGHT NAVBAR FIX ===== */
-html, body {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  box-sizing: border-box;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
+<style id="mobile-styles">
 @media (max-width: 768px) {
   /* Prevent horizontal scroll / swipe completely */
   html, body {
@@ -4983,7 +5270,7 @@ div.card-results {
                 <div class="footer-bottom-bar" style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-subtle);">
                     <div>© 2026 NexArt Agency. All rights reserved.</div>
                     <div style="display: flex; gap: 20px;">
-                        <a href="#top" style="color: var(--text-muted);">Back to Top ↑</a>
+                        <a href="#top" class="back-to-top-link">Back to Top ↑</a>
                     </div>
                 </div>
             </div>
@@ -5010,6 +5297,15 @@ div.card-results {
                 navbar.classList.remove('scrolled');
             }
         });
+
+        // Back to Top button
+        const backToTop = document.querySelector('.back-to-top-link');
+        if (backToTop) {
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+            });
+        }
 
         // Mobile Navigation Managed by toggleMobileMenu()
 
