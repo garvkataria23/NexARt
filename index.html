@@ -5314,11 +5314,13 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(animate);
         }
 
-        // Touch & Drag controls for smooth swipe on Mobile
+        // Touch & Drag controls for smooth swipe on Mobile (auto-rotation only pauses while actively dragging)
+        let touchMoved = false;
+
         carousel.parentElement.addEventListener('touchstart', (e) => {
             if (e.touches.length === 1) {
                 touchStartX = e.touches[0].clientX;
-                isUserInteracting = true;
+                touchMoved = false;
                 if (interactionTimeout) clearTimeout(interactionTimeout);
             }
         }, { passive: true });
@@ -5327,15 +5329,23 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.touches.length === 1) {
                 const deltaX = e.touches[0].clientX - touchStartX;
                 touchStartX = e.touches[0].clientX;
-                currentRotation += deltaX * 0.4;
-                updateCardsPosition();
+                if (Math.abs(deltaX) > 3) {
+                    touchMoved = true;
+                    isUserInteracting = true;
+                    currentRotation += deltaX * 0.4;
+                    updateCardsPosition();
+                }
             }
         }, { passive: true });
 
         carousel.parentElement.addEventListener('touchend', () => {
-            interactionTimeout = setTimeout(() => {
+            if (touchMoved) {
+                interactionTimeout = setTimeout(() => {
+                    isUserInteracting = false;
+                }, 200);
+            } else {
                 isUserInteracting = false;
-            }, 2000);
+            }
         }, { passive: true });
 
         // Scroll listener to rotate gallery smoothly with page scroll
@@ -5446,17 +5456,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     cards.forEach((card, idx) => {
-        const thumb = card.querySelector('.portfolio-thumb-wrap');
-        if (thumb) {
-            thumb.style.cursor = 'pointer';
-            thumb.addEventListener('click', () => {
-                updateLightbox(idx);
-                if (modal) {
-                    modal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-        }
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+            updateLightbox(idx);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
     });
 
     if (closeBtn && modal) {
