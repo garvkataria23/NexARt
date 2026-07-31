@@ -51,6 +51,7 @@
             color: var(--text-primary);
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            overflow-y: auto;
             width: 100%;
         }
 
@@ -114,6 +115,7 @@
 
         body {
             overflow-x: hidden;
+            overflow-y: hidden;
             width: 100%;
             max-width: 100vw;
             line-height: 1.6;
@@ -3299,201 +3301,6 @@ body.light-mode .text-gradient {
     }
 
     .marquee-section {
-        height: auto !important;
-        min-height: 110px !important;
-        padding: 16px 0 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        box-sizing: border-box !important;
-    }
-
-    .marquee-track-wrap {
-        width: 100% !important;
-    }
-}
-</style>
-<style id="full-phone-shape-final">
-.phone-showcase-card { 
-    width: 320px; 
-    max-width: 320px; 
-    aspect-ratio: 9 / 19.5; 
-    box-sizing: border-box; 
-    padding: 10px; 
-    border: 2px solid #85090d; 
-    border-radius: 44px; 
-    background: linear-gradient(110deg, #7d070b 0%, #f20a12 24%, #bd0008 72%, #650306 100%); 
-    box-shadow: -12px 20px 40px rgba(230,0,0,.35), 0 10px 25px rgba(0,0,0,.35);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    image-rendering: -webkit-optimize-contrast;
-}
-.phone-showcase-card::before { content: ''; position: absolute; z-index: 8; top: 15px; left: 50%; width: 92px; height: 25px; transform: translateX(-50%); border-radius: 0 0 17px 17px; background: #050505; box-shadow: 0 2px 3px rgba(0,0,0,.75); }
-.phone-showcase-card::after { content: ''; position: absolute; left: -5px; top: 126px; width: 4px; height: 46px; border-radius: 3px 0 0 3px; background: #77070b; box-shadow: 0 62px 0 #77070b; }
-.phone-keypad { display: none; }
-.phone-inner-screen { 
-    height: 100%; 
-    max-height: none; 
-    box-sizing: border-box; 
-    border: 2px solid #141414; 
-    border-radius: 35px; 
-    -webkit-font-smoothing: antialiased;
-    image-rendering: -webkit-optimize-contrast;
-}
-.ig-profile-header { padding-top: 43px; }
-.ig-bio-tag { font-size: 14px; font-weight: 700; color: #FFFFFF; }
-.ig-bio-emojis { font-size: 14px; margin: 4px 0; }
-.ig-bio-collab { font-size: 13px; font-weight: 600; color: #F0F0F0; line-height: 1.3; }
-.ig-bio-link { font-size: 13px; font-weight: 600; color: #4094EF; }
-.ig-followers-text { font-size: 12px; color: #DDDDDD; }
-.ig-btn { font-size: 13px; font-weight: 600; padding: 6px 12px; }
-.ig-highlight-title { font-size: 12px; font-weight: 600; color: #EEEEEE; }
-@media (max-width: 640px) { .phone-showcase-card { width: 300px; max-width: 300px; transform: scale(.78) rotateZ(6deg); } }
-.phone-floating-stat, .phone-floating-banner { display: none; }
-.phone-value-card { 
-    position: absolute; 
-    z-index: 15; 
-    width: 154px; 
-    height: 136px; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 10px; 
-    border-radius: 24px; 
-    color: #FFFFFF; 
-    font-family: var(--font-display); 
-    font-size: 13px; 
-    font-weight: 700; 
-    text-align: center;
-    line-height: 1.2; 
-    padding: 12px;
-    box-sizing: border-box;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-}
-
-.phone-value-card-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.phone-value-card svg { width: 24px; height: 24px; color: #FFFFFF; stroke-width: 2.2; }
-
-/* Exact Red & Dark Gradients matching Image 1 */
-.card-strategy { 
-    top: 30px; 
-    left: -175px; 
-    background: linear-gradient(135deg, #E60000 0%, #990000 100%); 
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 20px 45px rgba(230, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
-    transform: rotate(7deg) translateZ(45px); 
-}
-
-.card-creative { 
-    top: 240px; 
-    left: -170px; 
-    background: linear-gradient(135deg, #181A20 0%, #080A0D 100%); 
-    border: 1px solid rgba(255, 255, 255, 0.18); 
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.25);
-    transform: rotate(-6deg) translateZ(35px); 
-}
-
-.card-growth { 
-    top: 100px; 
-    right: -175px; 
-    background: linear-gradient(135deg, #181A20 0%, #080A0D 100%); 
-    border: 1px solid rgba(255, 255, 255, 0.18); 
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.25);
-    transform: rotate(6deg) translateZ(35px); 
-}
-
-.card-results { 
-    top: 310px; 
-    right: -170px; 
-    background: linear-gradient(135deg, #E60000 0%, #990000 100%); 
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 20px 45px rgba(230, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
-    transform: rotate(-7deg) translateZ(45px); 
-}
-
-@media (max-width: 1024px) { 
-    .phone-value-card { width: 130px; height: 115px; font-size: 11px; } 
-    .phone-value-card-icon { width: 36px; height: 36px; }
-    .phone-value-card svg { width: 20px; height: 20px; } 
-    .card-strategy { left: 0px; } 
-    .card-creative { left: 0px; } 
-    .card-growth { right: 0px; } 
-    .card-results { right: 0px; } 
-}
-</style>
-<style id="ultimate-mobile-friendly">
-/* ===== COMPREHENSIVE MOBILE OPTIMIZATION (tiny screens ≤480px, no desktop changes) ===== */
-@media (max-width: 480px) {
-  /* SCROLL FIXES: single native scrollbar on html, body visible */
-  html { overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; }
-  body { overflow-x: hidden; overflow-y: hidden; }
-  #contact { min-height: auto; }
-  #contact .cta-banner { min-height: auto; }
-  .portfolio-grid { overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
-
-  .container { padding: 0 12px; }
-
-  /* Hero - more compact on tiny screens */
-  .hero { padding-top: 72px; padding-bottom: 20px; overflow: hidden; }
-  .hero-glow-bg { width: 100%; max-width: 280px; height: 280px; left: 50%; transform: translate(-50%, -50%); }
-  .hero-title { font-size: 20px; line-height: 1.2; }
-  .hero-subtitle { font-size: 12px; line-height: 1.45; margin-bottom: 12px; }
-  .hero-metrics-pill { font-size: 10px; gap: 4px 8px; margin-bottom: 14px; }
-  .hero .hero-grid { gap: 12px; }
-  .hero-actions { flex-direction: row; flex-wrap: wrap; gap: 6px; width: 100%; justify-content: center; }
-  .hero-actions .btn { flex: 1 1 0%; min-height: 42px; padding: 8px 8px; font-size: 11px; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; gap: 4px; text-align: center; border-radius: 999px; }
-  .hero-actions .btn svg { width: 12px; height: 12px; flex-shrink: 0; }
-  .hero-actions .btn .arrow { font-size: 11px; }
-  .btn { padding: 10px 14px; font-size: 12px; }
-
-  /* Phone showcase - compact & easy to scroll past */
-  .hero .phone-showcase-card { width: 100px; max-width: 100px; transform: scale(0.9) rotateZ(2deg); border-radius: 18px; padding: 6px; }
-  .hero .phone-showcase-container { margin: 0; padding: 0; min-height: 0; touch-action: pan-y; }
-  .hero .phone-showcase-card,
-  .hero .phone-showcase-card * { pointer-events: none; }
-  .hero .phone-showcase-card { transition: none; animation: none; cursor: default; }
-  .hero .phone-showcase-card:hover { transform: scale(0.9) rotateZ(2deg); }
-  .hero .phone-showcase-card .phone-floating-stat,
-  .hero .phone-showcase-card .phone-floating-banner { display: none; }
-  .hero .phone-showcase-card .phone-inner-screen { max-height: 110px; border-radius: 10px; overflow: hidden; }
-  .hero .phone-keypad { display: grid; position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); width: 58px; grid-template-columns: repeat(3, 1fr); gap: 5px 7px; z-index: 9; pointer-events: none; opacity: 0.72; }
-  .hero .phone-keypad span { width: 7px; height: 7px; border-radius: 999px; background: rgba(255, 255, 255, 0.34); box-shadow: inset 0 1px 1px rgba(255,255,255,.22), 0 1px 3px rgba(0,0,0,.25); }
-  /* 4 value cards floating around phone — compact for mobile */
-  .hero .phone-value-card { display: flex; width: 60px; height: 52px; font-size: 6.5px; gap: 4px; border-radius: 10px; padding: 6px 4px; }
-  .hero .phone-value-card .phone-value-card-icon { width: 18px; height: 18px; }
-  .hero .phone-value-card svg { width: 10px; height: 10px; }
-  .card-strategy { top: -5px; left: 0px; }
-  .card-creative { top: 80px; left: 0px; }
-  .card-growth { top: 10px; right: 0px; }
-  .card-results { top: 95px; right: 0px; }
-
-  /* Stats - tighter fit */
-  .stats-grid { gap: 6px; }
-  .stat-box { padding: 8px 4px; border-radius: 10px; }
-  .stat-number { font-size: 17px; }
-  .stat-label { font-size: 7.5px; letter-spacing: 0; }
-
-  /* Section headers */
-  .section-header { margin-bottom: 20px; }
-  .section-title { font-size: 20px; }
-  .section-desc { font-size: 12px; }
-  #services .section-title[style] { font-size: 20px; }
-
-  /* Services cards */
-  .bento-grid { gap: 10px; }
         height: auto !important;
         min-height: 110px !important;
         padding: 16px 0 !important;
