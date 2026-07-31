@@ -5284,9 +5284,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (carousel && cards.length > 0) {
         let currentRotation = 0;
-        let isUserInteracting = false;
-        let interactionTimeout = null;
-        let touchStartX = 0;
 
         function getRadius() {
             const width = window.innerWidth;
@@ -5316,55 +5313,12 @@ document.addEventListener('DOMContentLoaded', () => {
             carousel.style.transform = `rotateY(${currentRotation}deg)`;
         }
 
-        // Continuous subtle auto-rotation
+        // Continuous auto-rotation (unaffected by any touch, tap, or page scroll)
         function animate() {
-            if (!isUserInteracting) {
-                currentRotation += 0.15;
-                updateCardsPosition();
-            }
+            currentRotation += 0.15;
+            updateCardsPosition();
             requestAnimationFrame(animate);
         }
-
-        // Touch & Drag controls for smooth swipe on Mobile (auto-rotation only pauses while actively dragging)
-        let touchMoved = false;
-
-        carousel.parentElement.addEventListener('touchstart', (e) => {
-            if (e.touches.length === 1) {
-                touchStartX = e.touches[0].clientX;
-                touchMoved = false;
-                if (interactionTimeout) clearTimeout(interactionTimeout);
-            }
-        }, { passive: true });
-
-        carousel.parentElement.addEventListener('touchmove', (e) => {
-            if (e.touches.length === 1) {
-                const deltaX = e.touches[0].clientX - touchStartX;
-                touchStartX = e.touches[0].clientX;
-                if (Math.abs(deltaX) > 3) {
-                    touchMoved = true;
-                    isUserInteracting = true;
-                    currentRotation += deltaX * 0.4;
-                    updateCardsPosition();
-                }
-            }
-        }, { passive: true });
-
-        carousel.parentElement.addEventListener('touchend', () => {
-            if (touchMoved) {
-                interactionTimeout = setTimeout(() => {
-                    isUserInteracting = false;
-                }, 200);
-            } else {
-                isUserInteracting = false;
-            }
-        }, { passive: true });
-
-        // Scroll listener to rotate gallery smoothly with page scroll (never pauses auto-rotation)
-        window.addEventListener('scroll', () => {
-            const scrollProgress = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight || 1);
-            currentRotation = scrollProgress * 720;
-            updateCardsPosition();
-        }, { passive: true });
 
         window.addEventListener('resize', updateCardsPosition);
 
