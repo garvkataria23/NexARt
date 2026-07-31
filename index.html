@@ -2320,6 +2320,11 @@ body.light-mode .lightbox-close-btn:hover {
     box-shadow: none;
     border: none;
   }
+  /* Hide "Tap for Full View" hint entirely on mobile */
+  .portfolio-3d-card-wrap .portfolio-thumb-wrap::after,
+  .portfolio-card:hover .portfolio-thumb-wrap::after {
+    display: none !important;
+  }
 }
 </style>
 
