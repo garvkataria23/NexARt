@@ -5348,18 +5348,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, { passive: true });
 
-        // Scroll listener to rotate gallery smoothly with page scroll
+        // Scroll listener to rotate gallery smoothly with page scroll (never pauses auto-rotation)
         window.addEventListener('scroll', () => {
-            isUserInteracting = true;
-            if (interactionTimeout) clearTimeout(interactionTimeout);
-
             const scrollProgress = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight || 1);
             currentRotation = scrollProgress * 720;
             updateCardsPosition();
-
-            interactionTimeout = setTimeout(() => {
-                isUserInteracting = false;
-            }, 1500);
         }, { passive: true });
 
         window.addEventListener('resize', updateCardsPosition);
